@@ -36,8 +36,11 @@ class RegisteredUserController extends Controller
         ]);
 
         $user = User::create([
+            //Lấy giá trị từ register.blade.php và lưu vào các trường của database
             'name' => $request->name,
             'email' => $request->email,
+            'phone' => $request->phone,
+            'address' => $request->address,
             'password' => Hash::make($request->password),
         ]);
 
