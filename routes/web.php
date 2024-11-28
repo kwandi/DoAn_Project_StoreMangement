@@ -32,3 +32,8 @@ route::post('add_category',[AdminController::class,'add_category'])->middleware(
 route::get('delete_category/{id}',[AdminController::class,'delete_category'])->middleware(['auth','admin']);
 
 route::get('edit_category/{id}',[AdminController::class,'edit_category'])->middleware(['auth','admin']);
+
+route::get('add_cart/{id}', [HomeController::class, 'add_cart'])->middleware(['auth', 'verified']);
+route::get('mycart', [HomeController::class, 'mycart'])->middleware(['auth', 'verified']);
+route::get('delete_cart/{id}', [HomeController::class, 'delete_cart'])->middleware(['auth', 'verified']);
+route::post('comfirm_order', [HomeController::class, 'comfirm_order'])->middleware(['auth', 'verified']);
