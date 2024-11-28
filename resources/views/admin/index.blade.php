@@ -7,6 +7,7 @@
     @include('admin.header')
 
     <div class="d-flex align-items-stretch">
+      
 
       <!-- Sidebar Navigation-->
       @include('admin.sidebar')
@@ -15,6 +16,8 @@
       <div class="page-content">
         <div class="page-header">
           <div class="container-fluid">
+            
+          <h1>Welcome</h1>
 
           @include('admin.body')
 

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Models\Category;
 
+use App\Models\Product;
+
 class AdminController extends Controller
 {
     public function view_category()
@@ -50,6 +52,62 @@ class AdminController extends Controller
         $data->save();
 
         return redirect('/view_category');
+    }
+
+    public function add_product()
+    {
+        $categories = Category::all();
+
+        return view('admin.add_product', compact('categories'));
+    }
+
+    public function upload_product(Request $request)
+    {
+        $data = new Product;
+
+        $data->title = $request->title;
+
+        $data->description = $request->description;
+
+        $data->price = $request->price;
+
+        $data->quantity = $request->quantity;
+
+        $data->category = $request->category;
+
+        $image = $request->image;
+        if ($image) {
+            $imagename = time().'.'.$image->getClientOriginalExtension();
+
+            $request->image->move('images', $imagename); //Di chuyển ảnh gốc đến thư mục images
+
+            $data->image = $imagename;
+        }
+
+        $data->save();
+
+        return redirect()->back();
+    }
+
+    public function view_product()
+    {
+        $data = Product::all();
+
+        return view('admin.view_product', compact('data'));
+    }
+
+    public function delete_product($id)
+    {
+        $data = Product::find($id);
+
+        $image_path = public_path('images/'.$data->image);
+        if (file_exists($image_path)) {
+            unlink($image_path);
+        }
+
+        $data->delete();
+
+        return redirect()->back();
     }
 
 }
