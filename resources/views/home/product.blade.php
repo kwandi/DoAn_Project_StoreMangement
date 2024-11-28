@@ -13,13 +13,17 @@
           <div class="box">
             <a href="">
               <div class="img-box">
-                <img src="images/p1.png" alt=""> //thay img db
+                <img src="images/{{$product->image}}" alt="">
               </div>
               <div class="detail-box">
                 <h6>{{$product->title}}</h6>
                 <h6>Price
                     <span>{{$product->price}}</span>
                 </h6>
+              </div>
+
+              <div>
+                <a class="btn btn-primary" href="{{url('add_cart', $product->id )}}">Add to cart</a>
               </div>
             </a>
           </div>
