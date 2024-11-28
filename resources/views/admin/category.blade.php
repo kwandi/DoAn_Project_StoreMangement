@@ -58,16 +58,40 @@
           <div class="div_deg">
           <form action="{{url('add_category')}}" method="POST">
 
+          @csrf
+
                 <div>
                     <input type="text" name="category">
-
-                    <input type="text" name="mota">
 
                     <input class="btn btn-primary" type="submit" value="Add">
                 </div>
 
           </form>
           </div>
+
+          <div>
+              <table class="table_deg">
+                <tr>
+                  <th>Category Name</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+
+                @foreach($data as $data)
+                <tr>
+                  <td>{{$data->category_name}}</td>
+                  <td>
+                    <a class="btn btn-secondary" href="{{url('edit_category', $data->id)}}">Edit</a>
+                  </td>
+                  <td>
+                    <a class="btn btn-success" href="{{url('delete_category', $data->id)}}">Delete</a>
+                  </td>
+                </tr>
+                @endforeach
+
+              </table>
+          </div>
+          
 
       </div>
     </div>
