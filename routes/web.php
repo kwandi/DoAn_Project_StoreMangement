@@ -33,6 +33,8 @@ route::get('delete_category/{id}',[AdminController::class,'delete_category'])->m
 
 route::get('edit_category/{id}',[AdminController::class,'edit_category'])->middleware(['auth','admin']);
 
+Route::get('/', [HomeController::class,'home']);
+Route::get('/dashboard', [HomeController::class,'login_home'])->middleware(['auth', 'verified'])->name('dashboard');
 route::get('add_cart/{id}', [HomeController::class, 'add_cart'])->middleware(['auth', 'verified']);
 route::get('mycart', [HomeController::class, 'mycart'])->middleware(['auth', 'verified']);
 route::get('delete_cart/{id}', [HomeController::class, 'delete_cart'])->middleware(['auth', 'verified']);
