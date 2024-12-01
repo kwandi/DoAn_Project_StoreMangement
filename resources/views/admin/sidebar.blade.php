@@ -30,9 +30,7 @@
             <i class="icon-windows"></i>Order Management
         </a>
         <ul id="orderManagementDropdown" class="collapse list-unstyled ">
-            <li><a href="#">Page</a></li>
-            <li><a href="#">Page</a></li>
-            <li><a href="#">Page</a></li>
+            <li><a href="{{url('view_orders')}}">View Oders</a></li>
         </ul>
     </li>
 </div>

@@ -47,6 +47,11 @@ route::get('update_product/{id}',[AdminController::class,'update_product'])->mid
 
 route::post('edit_product/{id}',[AdminController::class,'edit_product'])->middleware(['auth','admin']);
 
+route::get('view_orders',[AdminController::class,'view_orders'])->middleware(['auth','admin']);
+
+route::get('on_the_way/{id}',[AdminController::class,'on_the_way'])->middleware(['auth','admin']);
+
+route::get('delivered/{id}',[AdminController::class,'delivered'])->middleware(['auth','admin']);
 
 
 Route::get('/', [HomeController::class,'home']);
