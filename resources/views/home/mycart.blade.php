@@ -31,6 +31,27 @@
             margin-bottom: 20px;
             padding: 10px;
         }
+        .form_order{
+           margin-right: 150px;
+           width: 400px;
+        }
+        .form_order--input{
+            width: 350px;
+            display: flex;
+        }
+        .form_order--input label{
+            flex: 1;
+        }
+        .form_order--input input{
+            flex: 2;
+            height: 40px;
+        }
+        .form_order--input textarea{
+            margin-top: 15px;
+            flex: 2;
+            height: 60px;
+        }
+
     </style>
 </head>
 
@@ -42,32 +63,33 @@
 
     <div class="div_cart" >
 
-        <div>
+        <div class="form_order">
             <form style="margin-right: 50px" action="{{url('comfirm_order')}}" method="post">
                 @csrf
-                <div>
-                    <label >Receiver Name</label>
-                <input type="text" name="name">
+                <div class="form_order--input">
+                    <label>Tên khách hàng</label>
+                    <input type="text" name="name">
                 </div>
-                <div>
-                    <label >Receiver Address</label>
-                <textarea name="address"></textarea>
+                <div class="form_order--input">
+                    <label >Số điện thoại</label>
+                    <input type="text" name="phone">
                 </div>
-                <div>
-                    <label >Receiver Phone</label>
-                <input type="text" name="phone">
+                <div class="form_order--input">
+                    <label >Địa chỉ giao hàng</label>
+                    <textarea name="address"></textarea>
                 </div>
 
-                <input class="btn btn-primary" type="submit" value="Place Order">
+
+                <input class="btn btn-primary" type="submit" value="Đặt hàng">
             </form>
         </div>
 
         <table>
         <tr>
-            <th>Product Title</th>
-            <th>Price</th>
-            <th>Image</th>
-            <th>Remove</th>
+            <th>Tên sản phẩm</th>
+            <th>Giá</th>
+            <th>Hình ảnh</th>
+            <th>Xóa</th>
         </tr>
 
         <?php $s=0?>
@@ -76,15 +98,15 @@
             <td>{{$cart->product->title}}</td>
             <td>{{$cart->product->price}}</td>
             <td><img width="50px" height="50px" src="images/{{$cart->product->image}}"></td>
-            <td><a href="{{url('delete_cart', $cart->id)}}" class="btn btn-danger">remove</a></td>
+            <td><a href="{{url('delete_cart', $cart->id)}}" class="btn btn-danger">xóa</a></td>
         </tr>
         <?php $s += $cart->product->price ?>
         @endforeach
 
     </table>
 
-    </div>
-    <h4 class="totalPrice">Total value of Cart is: {{$s}}</h4>
+</div>
+<h5 class="totalPrice">Tổng giá trị của Giỏ hàng là: {{$s}} VNĐ</h5>
 
 
   <!-- end info section -->

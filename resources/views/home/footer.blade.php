@@ -1,83 +1,44 @@
-<section class="info_section  layout_padding2-top">
-    <div class="social_container">
-      <div class="social_box">
-        <a href="">
-          <i class="fa fa-facebook" aria-hidden="true"></i>
-        </a>
-        <a href="">
-          <i class="fa fa-twitter" aria-hidden="true"></i>
-        </a>
-        <a href="">
-          <i class="fa fa-instagram" aria-hidden="true"></i>
-        </a>
-        <a href="">
-          <i class="fa fa-youtube" aria-hidden="true"></i>
-        </a>
-      </div>
-    </div>
-    <div class="info_container ">
-      <div class="container">
+<section class="bg-dark text-white py-4">
+    <div class="container">
         <div class="row">
-          <div class="col-md-6 col-lg-3">
-            <h6>
-              ABOUT US
-            </h6>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet,
-            </p>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <div class="info_form ">
-              <h5>
-                Newsletter
-              </h5>
-              <form action="#">
-                <input type="email" placeholder="Enter your email">
-                <button>
-                  Subscribe
-                </button>
-              </form>
+            <!-- Thông tin công ty -->
+            <div class="col-md-4">
+                <h5>Đồ án chuyên ngành</h5>
+                <p>
+                    Xây dựng website bán quần áo<br>
+                    Địa chỉ: Số 123, Đường ABC, Quận 8, TP.HCM<br>
+                    Điện thoại: 0123456789<br>
+                    Email: xyx@xyzfashion.com
+                </p>
             </div>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <h6>
-              NEED HELP
-            </h6>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet,
-            </p>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <h6>
-              CONTACT US
-            </h6>
-            <div class="info_link-box">
-              <a href="">
-                <i class="fa fa-map-marker" aria-hidden="true"></i>
-                <span> Gb road 123 london Uk </span>
-              </a>
-              <a href="">
-                <i class="fa fa-phone" aria-hidden="true"></i>
-                <span>+01 12345678901</span>
-              </a>
-              <a href="">
-                <i class="fa fa-envelope" aria-hidden="true"></i>
-                <span> demo@gmail.com</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- footer section -->
-    <footer class=" footer_section">
-      <div class="container">
-        <p>
-          &copy; <span id="displayYear"></span> All Rights Reserved By
-          <a href="https://html.design/">Web Tech Knowledge</a>
-        </p>
-      </div>
-    </footer>
-    <!-- footer section -->
 
-  </section>
+            <!-- Liên kết nhanh -->
+
+            <div class="col-md-4">
+                <h5>Liên kết nhanh</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-white text-decoration-none">Về chúng tôi</a></li>
+                    <li><a href="#" class="text-white text-decoration-none">Sản phẩm</a></li>
+                    <li><a href="#" class="text-white text-decoration-none">Khuyến mãi</a></li>
+                    <li><a href="#" class="text-white text-decoration-none">Liên hệ</a></li>
+                </ul>
+            </div>
+
+            <!-- Theo dõi chúng tôi -->
+            <div class="col-md-4">
+                <h5>Theo dõi chúng tôi</h5>
+                <div>
+                    <a href="#" class="text-white me-3">
+                        <i class="fa fa-facebook"></i> Facebook
+                    </a>
+                    <a href="#" class="text-white me-3">
+                        <i class="fa fa-instagram"></i> Instagram
+                    </a>
+                    <a href="#" class="text-white">
+                        <i class="fa fa-twitter"></i> Twitter
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

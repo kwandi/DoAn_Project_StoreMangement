@@ -94,8 +94,8 @@ class HomeController extends Controller
         foreach($cart as $carts){
             $order = new Order();
             $order->name=$name;
-            $order->address=$address;
             $order->phone=$phone;
+            $order->address=$address;
             $order->user_id=$userid;
             $order->product_id=$carts->product_id;
 
@@ -109,5 +109,115 @@ class HomeController extends Controller
         return redirect()->back();
 
     }
+    public function myorders(){
+        $orders = Order::all();
+        // cnt
+        if(Auth::id()){
+            $user = Auth::user();
+            $userid = $user->id;
+            $count = Cart::where('user_id', $userid)->count();
+        }
+        else{
+            $count = '';
+        }
+        //
+        return view('home.myorders', compact('orders', 'count'));
+    }
+    //Search GPT
+//     public function search_product(Request $request)
+// {
+//     $query = Product::query();
+
+//     // Tìm kiếm theo từ khóa
+//     if ($request->has('search') && !empty($request->search)) {
+//         $query->where('title', 'LIKE', '%' . $request->search . '%');
+//     }
+
+//     // Lọc theo danh mục
+//     if ($request->has('category') && is_array($request->category)) {
+//         $query->whereIn('category', $request->category);
+//     }
+
+//     // Lọc theo màu sắc
+//     if ($request->has('color') && is_array($request->color)) {
+//         $query->whereIn('color', $request->color);
+//     }
+
+//     // Lọc theo giá
+//     if ($request->has('price') && $request->price != 'all') {
+//         switch ($request->price) {
+//             case 'under_20000':
+//                 $query->where('price', '<', 20000);
+//                 break;
+//             case 'between_20000_30000':
+//                 $query->whereBetween('price', [20000, 30000]);
+//                 break;
+//             case 'above_30000':
+//                 $query->where('price', '>', 30000);
+//                 break;
+//         }
+//     }
+//    // Lấy danh sách sản phẩm sau khi lọc
+//     $product = $query->get();
+
+//     // Đếm sản phẩm trong giỏ hàng
+//     if (Auth::id()) {
+//         $user = Auth::user();
+//         $userid = $user->id;
+//         $count = Cart::where('user_id', $userid)->count();
+//     } else {
+//         $count = '';
+//     }
+
+//     return view('home.index', compact('product', 'count'));
+// }
+
+
+public function search_product(Request $request) {
+    $search = $request->search;
+    $category = $request->category;
+    $color = $request->color;
+    $price = $request->price;
+
+    $query = Product::query();
+
+    if ($search) {
+        $query->where('title', 'LIKE', '%' . $search . '%');
+    }
+
+    if ($category) {
+        $query->whereIn('category', $category);
+    }
+
+    if ($color) {
+        $query->whereIn('color', $color);
+    }
+
+    if ($price && $price!='all') {
+        switch ($price) {
+            case 'under_20000':
+                $query->where('price', '<', 20000);
+                break;
+            case 'between_20000_30000':
+                $query->whereBetween('price', [20000, 30000]);
+                break;
+            case 'above_30000':
+                $query->where ('price', '>', 30000);
+                break;
+        }
+    }
+
+    $product = $query->get();
+
+    if (Auth::id()) {
+        $user = Auth::user();
+        $userid = $user->id;
+        $count = Cart::where('user_id', $userid)->count();
+    } else {
+        $count = '';
+    }
+
+    return view('home.index', compact('product', 'count'));
+}
 
 }

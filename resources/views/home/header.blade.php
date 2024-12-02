@@ -1,74 +1,66 @@
 <header class="header_section">
     <nav class="navbar navbar-expand-lg custom_nav-container ">
-      <a class="navbar-brand" href="index.html">
-        <span>
-          Giftos
-        </span>
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class=""></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav  ">
-          <li class="nav-item active">
-            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="shop.html">
-              Shop
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="why.html">
-              Why Us
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="testimonial.html">
-              Testimonial
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact Us</a>
-          </li>
-        </ul>
-        <div class="user_option">
-            @if (Route::has('login'))
-
-            @auth
-
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
-                <input type="submit" value="logout">
-               </form>
-            @else
-
-          <a href="{{url('/login')}}">
-            <i class="fa fa-user" aria-hidden="true"></i>
+        <a class="navbar-brand" href="{{ route('home') }}">
             <span>
-              Login
+                SHOP QUẦN ÁO
             </span>
-          </a>
-          <a href="{{url('/register')}}">
-            <i class="fa fa-vcard" aria-hidden="true"></i>
-            <span>
-              Register
-            </span>
-          </a>
-          @endauth
-          @endif
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""></span>
+        </button>
 
-          <a href="{{url('mycart')}}">
-            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-            {{"[$count]"}}
-          </a>
-          <form class="form-inline ">
-            <button class="btn nav_search-btn" type="submit">
-              <i class="fa fa-search" aria-hidden="true"></i>
-            </button>
-          </form>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ route('home') }}">Trang chủ <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">
+                        Sản phẩm
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">
+                        Cửa hàng
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">
+                        Giới thiệu
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Liên hệ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('myorders') }}">Đơn hàng</a>
+                </li>
+            </ul>
+            <div class="user_option">
+                <a href="{{ url('mycart') }}">
+                    <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                    {{ "[$count]" }}
+                </a>
+
+                @if (Route::has('login'))
+                    @auth
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <input style="margin-right: 10px" type="submit" value="Đăng xuất">
+                        </form>
+                    @else
+                        <a href="{{ url('/login') }}">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <span>Đăng nhập</span>
+                        </a>
+                        <a href="{{ url('/register') }}">
+                            <i class="fa fa-vcard" aria-hidden="true"></i>
+                            <span>Đăng kí</span>
+                        </a>
+                    @endauth
+                @endif
+            </div>
         </div>
-      </div>
     </nav>
-  </header>
+</header>
